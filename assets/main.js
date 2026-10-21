@@ -139,7 +139,7 @@
 
   // RSVP: saved as a row in the family's Google Sheet (Apps Script web app).
   // Until RSVP_SHEET_URL is set, it falls back to a WhatsApp message to Darpan.
-  var RSVP_SHEET_URL = 'https://script.google.com/macros/s/AKfycbyPinXDLM5bgnkw4xMgrc2_KDTtMZcI1NP-wRPcs2NePCNAGq9LS8pqj-4XndiC1lWr/exec';
+  var RSVP_SHEET_URL = 'https://script.google.com/macros/s/AKfycbymUn-o8cnIXmH8NgaMfFLt4SgfQ1_C4hsOg2WoQiOyIRXDI7lml4U9aH0GaYLKKA6M/exec';
   var form = document.getElementById('rsvpForm');
   if (form) {
     form.addEventListener('submit', function (e) {
@@ -166,7 +166,7 @@
       // Form-encoded + no-cors: Apps Script accepts it without a CORS preflight; the response is opaque.
       fetch(RSVP_SHEET_URL, {
         method: 'POST', mode: 'no-cors',
-        body: new URLSearchParams({ name: name, guests: guests, phone: phone, days: days.join(', '), note: note })
+        body: new URLSearchParams({ name: name, guests: guests, phone: "'" + phone, days: days.join(', '), note: note })
       }).then(function () {
         form.innerHTML = '<p class="h-md" role="status">Thank you, ' + name.replace(/[&<>"]/g, '') + '! Your RSVP is in. See you in Chikhli.</p>';
       }, function () {
