@@ -87,7 +87,7 @@ window.DKH_EVENTS = [
   if (idx < 0) idx = 0;
   var ev = list[idx];
 
-  document.title = ev.name + ' – Darpan & Helly';
+  document.title = ev.name + ' – Helly & Darpan';
   var heroImg = document.getElementById('evHeroImg');
   heroImg.src = 'assets/img/' + ev.photo;
   heroImg.style.objectPosition = ev.pos;
@@ -135,7 +135,7 @@ window.DKH_EVENTS = [
       'UID:' + ev.slug + '@darpankihelly',
       'DTSTART;TZID=Asia/Kolkata:' + d + 'T' + hm + '00',
       'DTEND;TZID=Asia/Kolkata:' + d + 'T' + endH.replace(':', '') + '00',
-      'SUMMARY:' + ev.name + ' – Darpan & Helly',
+      'SUMMARY:' + ev.name + ' – Helly & Darpan',
       'LOCATION:' + (ev.venue.indexOf('Krishna') > -1 ? ev.venue : ev.venue + ', Krishna Resort, Chikhli'),
       'DESCRIPTION:' + ev.what + '. #DarpanKiHelly',
       'END:VEVENT', 'END:VCALENDAR'
